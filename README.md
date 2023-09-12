@@ -227,4 +227,6 @@ The API documentation I created outlines the functionality and usage of the Prod
 
 
 ### NLU MODEL DOCUMENTATION
-I followed a standard approach used in implementing intelligent search engine using large language models.
+![sentence embedding](https://github.com/bmt621/Fashion-Product-Chat-Assistant/blob/main/img/embedding_example.jpg)
+
+I followed a standard approach used in implementing intelligent search engine using large language models. so the approach is you train a transformer large language models to understand a sentence context. then you transform each sentence into a single embedding vectors. in this figure above, the embeddings represent the points along with their corresponding sentence. so any vector points that appears closer to each other are known to have the same context or similarity. on my approach, I give the model mostly all information regarding a products, so the model embeds each product information into an embeddings along with it's ID formatted on a json file here [here](https://github.com/bmt621/Fashion-Product-Chat-Assistant/blob/main/embeddings_with_ID.json), so everytime the model received a user query, it'll embed the query into a vector and perform vector similarity between each product embedding vectors. so every product embedding that is similar to the query embedding will result in higher similarity computation. below is a simple picture depicting how vector similarity works. ![vector similarity](hello)
