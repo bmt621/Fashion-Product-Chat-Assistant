@@ -1,10 +1,11 @@
 #    Fashion-Product-Chatbot With API Support
 
-This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, I hosted a public API [here](https://github.com/bmt621)
+This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, I hosted a public API [here](http://20.22.45.2/docs)
 
 ## Technologies and Frameworks
 - python 3.10
 - Docker
+- kubernetes
 - Pytorch
 - FastAPI
 - Azure Cloud
@@ -111,7 +112,7 @@ This is the API Documentation.
 
 ### Base URL
 
-The base URL for this API is `http://localhost:8000` when running locally or you can access the public one directly `put-public-endpoint-here`.
+The base URL for this API is `http://localhost:8000` when running locally or you can access the public one directly `http://20.22.45.2`, I also added kubernetes for efficient scaling up.
 
 ### Endpoints
 
@@ -128,7 +129,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   or
 
   ```bash
-  GET public-endoint-here
+  GET http://20.22.45.2/docs
   ```
 
 - **Response Example**:
@@ -151,7 +152,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   ```
   or
   ```bash
-  POST public-endoint-here
+  POST http://20.22.45.2/search_products
   ```
 
   - **Request Body**:
@@ -198,7 +199,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
 
 ### API Usage Instructions
 
-1. Ensure that the API is running locally by checking its status at `http://localhost:8000/`.
+1. Ensure that the API is running locally on machine or on public by checking its status at `http://localhost:8000/` or `http://20.22.45.2`
 
 2. To search for products, make a POST request to `http://localhost:8000/search_products`. Provide a JSON request body with the user's query.
 
@@ -216,7 +217,7 @@ http://localhost:8000/docs
 or access the public endpoint here 👇
 
 ```
-public-endpoint
+http://20.22.45.2/docs
 ```
 
 Swagger provides a user-friendly interface for exploring and interacting with the API endpoints.
