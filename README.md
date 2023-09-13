@@ -1,5 +1,5 @@
 #   Fashion-Product-Chatbot Application
-# Public API Link [here](http://20.22.45.2/docs)
+# Public API Link [here](http://20.1.254.170/docs)
 
 This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, **I hosted a public API** [here](http://20.22.45.2/docs)
 
@@ -118,7 +118,7 @@ This is the API Documentation.
 
 ### Base URL
 
-The base URL for this API is `http://localhost:8000` when running locally or you can access the public one directly `http://20.22.45.2`, I also added kubernetes for efficient scaling up.
+The base URL for this API is `http://localhost:8000` when running locally or you can access the public one directly `http://20.1.254.170`, I also added kubernetes for efficient scaling up.
 
 ### Endpoints
 
@@ -135,7 +135,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   or
 
   ```bash
-  GET http://20.22.45.2/
+  GET http://20.1.254.170/
   ```
 
 - **Response Example**:
@@ -158,7 +158,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   ```
   or
   ```bash
-  POST http://20.22.45.2/search_products
+  POST http://20.1.254.170/search_products
   ```
 
   - **Request Body**:
@@ -205,7 +205,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
 
 ### API Usage Instructions
 
-1. Ensure that the API is running locally on machine or on public by checking its status at `http://localhost:8000/` or `http://20.22.45.2`
+1. Ensure that the API is running locally on machine or on public by checking its status at `http://localhost:8000/` or `http://20.1.254.170`
 
 2. To search for products, make a POST request to `http://localhost:8000/search_products`. Provide a JSON request body with the user's query.
 
@@ -223,7 +223,7 @@ http://localhost:8000/docs
 or access the public endpoint here 👇
 
 ```
-http://20.22.45.2/docs
+http://20.1.254.170/docs
 ```
 
 Swagger provides a user-friendly interface for exploring and interacting with the API endpoints.
