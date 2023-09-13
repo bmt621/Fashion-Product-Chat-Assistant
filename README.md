@@ -6,7 +6,7 @@ This API I created allows you to search for products in a catalog and received i
 ## Technologies and Frameworks
 - python 3.10
 - Docker
-- kubernetes
+- kubernetes (support for scale-up)
 - Pytorch
 - FastAPI
 - Azure Cloud
