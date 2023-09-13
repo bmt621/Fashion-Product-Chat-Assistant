@@ -1,6 +1,6 @@
 #    Fashion-Product-Chatbot With API Support
 
-This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, I hosted a public API [here](http://20.22.45.2/docs)
+This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, **I hosted a public API** [here](http://20.22.45.2/docs)
 
 ## Technologies and Frameworks
 - python 3.10
