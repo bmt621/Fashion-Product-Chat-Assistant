@@ -135,7 +135,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   or
 
   ```bash
-  GET http://20.22.45.2/docs
+  GET http://20.22.45.2/
   ```
 
 - **Response Example**:
