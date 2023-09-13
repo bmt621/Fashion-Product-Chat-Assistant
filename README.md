@@ -1,10 +1,11 @@
 #    Fashion-Product-Chatbot With API Support
 
-This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, I hosted a public API [here](https://github.com/bmt621)
+This API I created allows you to search for products in a catalog and received intelligent response and the retrieved items using natural language queries. It employs CoHERE, OpenAI's GPT-3, sentence-transformers and other libraries to provide intelligent responses to user queries. This Guide will show you step by step on how to run your own API on localhost, additionally, **I hosted a public API** [here](http://20.22.45.2/docs)
 
 ## Technologies and Frameworks
 - python 3.10
 - Docker
+- kubernetes
 - Pytorch
 - FastAPI
 - Azure Cloud
@@ -111,7 +112,7 @@ This is the API Documentation.
 
 ### Base URL
 
-The base URL for this API is `http://localhost:8000` when running locally or you can access the public one directly `put-public-endpoint-here`.
+The base URL for this API is `http://localhost:8000` when running locally or you can access the public one directly `http://20.22.45.2`, I also added kubernetes for efficient scaling up.
 
 ### Endpoints
 
@@ -128,7 +129,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   or
 
   ```bash
-  GET public-endoint-here
+  GET http://20.22.45.2/docs
   ```
 
 - **Response Example**:
@@ -151,7 +152,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
   ```
   or
   ```bash
-  POST public-endoint-here
+  POST http://20.22.45.2/search_products
   ```
 
   - **Request Body**:
@@ -198,7 +199,7 @@ The base URL for this API is `http://localhost:8000` when running locally or you
 
 ### API Usage Instructions
 
-1. Ensure that the API is running locally by checking its status at `http://localhost:8000/`.
+1. Ensure that the API is running locally on machine or on public by checking its status at `http://localhost:8000/` or `http://20.22.45.2`
 
 2. To search for products, make a POST request to `http://localhost:8000/search_products`. Provide a JSON request body with the user's query.
 
@@ -216,7 +217,7 @@ http://localhost:8000/docs
 or access the public endpoint here 👇
 
 ```
-public-endpoint
+http://20.22.45.2/docs
 ```
 
 Swagger provides a user-friendly interface for exploring and interacting with the API endpoints.
@@ -228,5 +229,9 @@ The API documentation I created outlines the functionality and usage of the Prod
 
 ### NLU MODEL DOCUMENTATION
 ![sentence embedding](https://github.com/bmt621/Fashion-Product-Chat-Assistant/blob/main/img/embedding_example.jpg)
+ 
+In the realm of intelligent search engines, a common methodology involves harnessing the power of transformer-based large language models. These models enable us to decipher the contextual nuances within sentences. The transformation of each sentence results in a unique embedding vector. In the diagram provided, these embeddings are represented as points, with each point corresponding to a sentence. The proximity of points in this vector space signifies shared context or meaning.
 
-I followed a standard approach used in implementing intelligent search engine using large language models. so the approach is you train a transformer large language models to understand a sentence context. then you transform each sentence into a single embedding vectors. in this figure above, the embeddings represent the points along with their corresponding sentence. so any vector points that appears closer to each other are known to have the same context or similarity. on my approach, I give the model mostly all information regarding a products, so the model embeds each product information into an embeddings along with it's ID formatted on a json file here [here](https://github.com/bmt621/Fashion-Product-Chat-Assistant/blob/main/embeddings_with_ID.json), so everytime the model received a user query, it'll embed the query into a vector and perform vector similarity between each product embedding vectors. so every product embedding that is similar to the query embedding will result in higher similarity computation. below is a simple picture depicting how vector similarity works. ![vector similarity](hello)
+My approach takes this a step further by supplying the model with a comprehensive repository of product information. Each piece of product data is transformed into an embedding, which is then linked to a unique identification number (ID). You can explore a sample of this format in the JSON file located [here](https://github.com/bmt621/Fashion-Product-Chat-Assistant/blob/main/embeddings_with_ID.json). When a user submits a query, the model translates the query into a vector and evaluates its similarity to each product's embedding vector. Products whose embeddings closely align with the query's embedding receive higher similarity scores.
+
+To refine our search results and eliminate noise, I employ the cosine similarity metric, augmented with a user-defined threshold. Products surpassing this threshold are deemed pertinent. Once we've identified these relevant documents, I employ GPT-3 to craft context-aware responses, enhancing the overall user experience. below is a simple picture depicting how vector similarity works. ![vector similarity](https://github.com/bmt621/Fashion-Product-Chat-Assistant/blob/main/img/vector-similarity-l.jpg)
