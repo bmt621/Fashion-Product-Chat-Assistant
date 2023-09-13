@@ -98,7 +98,12 @@ If you prefer to run the API within a Docker container, the docker container wil
    docker build -t product-search-api .
    ```
 
-2. Run the Docker container:
+2. But if you don't want to wait for the docker container to finish building, you can pull from here 👇
+   ```bash
+   docker pull orbitalsai/fashion-deployed
+   ```
+
+4. Run the Docker container:
 
    ```bash
    docker run -p 8000:8000 product-search-api
