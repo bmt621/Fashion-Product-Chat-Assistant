@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fashion-deployed
+  name: fashion-deployed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fashion-deployed
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: fashion-deployed
+    spec:
+      containers:
+      - image: orbitalsai/fashion-deployed:latest
+        name: fashion-deployed
+        ports:
+        - containerPort: 8000
+        #env:
+        #- name: SYNCFUSION_LICENSE_KEY
+        #  value: "YOUR_LICENSE_KEY"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: fashion-deployed
+  name: fashion-deployed
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+  selector:
+    app: fashion-deployed
+  type: LoadBalancer
