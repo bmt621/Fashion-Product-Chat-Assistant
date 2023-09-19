@@ -85,9 +85,9 @@ Before running the API, please make sure you have the following prerequisites in
    curl -X POST -H "Content-Type: application/json" -d '{"user_query": "show me shoes for women"}' http://localhost:8000/search_products
    ```
 
-   Replace `"show me shoes for women"` with your desired user query.
+   Replace `"show me shoes for women"` with your desired user query.   
 
-4. The API will respond with an intelligent product recommendation based on your query and also a chatbot response showing you some product
+5. The API will respond with an intelligent product recommendation based on your query and also a chatbot response showing you some product
 
 ## Docker (Optional)
 
@@ -202,6 +202,20 @@ The base URL for this API is `http://localhost:8000` when running locally or you
       ]
   }
   ```
+
+### ERROR ROUTE CATCHING
+I implemented route catching errors that will catch any route not available and will return appropriate response, for example
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"user_query": "show me shoes for women"}' http://localhost:8000/search
+```
+will return this response:
+ ```json
+  {
+      "response": "POST Route not found", "retrieved",
+      "retrieved": null
+  }
+ ```
 
 ### API Usage Instructions
 
