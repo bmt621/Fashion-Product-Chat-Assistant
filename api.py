@@ -3,6 +3,9 @@ import uvicorn
 from pydantic import BaseModel
 from agent import product_embedder
 import pandas as pd
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
+
 
 class Query(BaseModel):
     user_query:str
@@ -25,6 +28,14 @@ def get_post_response(q:Query):
 
     return {"response":response,'retrieved':retrieved_data}
 
+  
+@app.get('/{path:path}')
+async def catch_all(path: str):
+    return JSONResponse(content={"response": "GET Route not found", "retrieved": None}, status_code=404)
+
+@app.post('/{path:path}')
+async def catch_all_post(path: str):
+    return JSONResponse(content={"response": "POST Route not found", "retrieved": None}, status_code=404)
 
 if __name__ == "__main__":
     uvicorn.run(app,host='0.0.0.0',port=8000)
